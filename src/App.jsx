@@ -647,10 +647,14 @@ export default function App() {
     async function loadProject() {
       if (currentPage === 'home' || currentPage === 'project-status' || currentPage === 'before-after') {
         setLoading(true);
-        const data = await getClientProject(DUMMY_CLIENT_ID);
+        let data = null;
+        if (supabase) {
+          data = await getClientProject(DUMMY_CLIENT_ID);
+        }
         if (data) {
           setProjectData(data);
         } else {
+
           // If no data in Supabase yet, use dummy data for UI display testing
           setProjectData({
             id: 'demo-1',
