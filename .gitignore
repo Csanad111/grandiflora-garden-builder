@@ -1,7 +1,9 @@
 # Sensitive
 .env
+.venv/
 .agent/
 .gemini/
+
 .tmp/
 *.pyc
 __pycache__/
